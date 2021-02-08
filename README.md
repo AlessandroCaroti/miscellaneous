@@ -1,2 +1,2 @@
 # Utility & Miscellaneous
-Collection of utility script and small libraries and minor projects. 
+Collection of utility script, small libraries and minor projects. 
