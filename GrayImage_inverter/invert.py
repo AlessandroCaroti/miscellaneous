@@ -14,7 +14,10 @@ import matplotlib.pyplot as plt
 import time
 
 if __name__ == "__main__":
-    img = cv2.imread('./tree.jpg')
+    img_path  = './tree.jpg'
+    if not os.path.exists(img_path):
+        raise FileNotFoundError(f"file {img_path} not exist")
+    img = cv2.imread(img_path)
     img_c = img.copy()
     gray = rgb2gray(img_c)
 
@@ -25,5 +28,6 @@ if __name__ == "__main__":
     
     gray[gray < 0.4] = 0
 
-    cv2.imwrite("tree_2.jpg", gray*256)
+    filename, extension = os.path.splitext(img_path)
+    cv2.imwrite(f"{filename}_inverted{extension}", gray*256)
     #print(col_list)
